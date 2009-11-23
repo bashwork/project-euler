@@ -1,0 +1,51 @@
+#!/bin/bash
+
+##
+# @brief Build all the solutions in a given directory
+#
+build_all() {
+    mkdir build
+    for dir in `ls *`; do
+        make $dir/makefile
+    done
+}
+
+##
+# @brief Create a new directory for a new problem
+#
+create_directory() {
+    sols="py rb c cc hs cs"
+    if [ "$1" != "" ]; then
+        echo "Building solution folder for $1"
+        mkdir $1
+        for name in $sols; do
+            touch $1/$1.$name
+        done
+        touch $1/makefile $1/README.markdown
+        echo "Project Euler: Problem $1"    >> $1/README.markdown
+        echo "============================" >> $1/README.markdown
+    else
+        echo "Please specify a solution to build"
+    fi
+    unset sols
+}
+
+##
+# @brief Main switch
+#
+case "$1" in 
+    build)
+        build_all
+    ;;
+
+    create)
+        create_directory $2
+    ;;
+
+    *)
+        echo "$0 <command> <args>"
+        echo "create_directory <args>"
+    ;;
+esac
+
+exit 0

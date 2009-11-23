@@ -6,5 +6,4 @@ def gcd(input, start=2):
         start += 1
     return start
 
-#print gcd(600851475143)
-print gcd(64)
+print gcd(600851475143)
