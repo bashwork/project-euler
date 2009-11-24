@@ -7,3 +7,7 @@ palindrome made from the product of two 2-digit numbers is
 
 Find the largest palindrom made from the product of two
 3-digit numbers.
+
+Solution
+========================================
+(993, 913, 906609)
