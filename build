@@ -14,15 +14,18 @@ build_all() {
 # @brief Create a new directory for a new problem
 #
 create_directory() {
-    sols="py rb c cc hs cs"
+    sols="py rb"
     if [ "$1" != "" ]; then
         echo "Building solution folder for $1"
         mkdir $1
         for name in $sols; do
             touch $1/$1.$name
         done
-        touch $1/makefile $1/README.markdown
+        touch $1/README.markdown
         echo "Project Euler: Problem $1"    >> $1/README.markdown
+        echo "============================" >> $1/README.markdown
+        echo                                >> $1/README.markdown
+        echo "Solution"                     >> $1/README.markdown
         echo "============================" >> $1/README.markdown
     else
         echo "Please specify a solution to build"
