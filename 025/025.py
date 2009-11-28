@@ -3,11 +3,13 @@
 #----------------------------------------------------------#
 def fib():
     a,b,c = 1,0,0
-    while c < 4000000:
+    while True:
        c = a + b
        a,b = b,c
-       if c % 2 == 0: yield c
-print sum(fib()) 
+       yield c
+
+for (a,b) in enumerate(fib()):
+    if len(str(b)) == 1000: print a + 1; break
 
 #----------------------------------------------------------#
 # Functional Solution
