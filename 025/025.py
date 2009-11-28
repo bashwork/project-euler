@@ -8,8 +8,8 @@ def fib():
        a,b = b,c
        yield c
 
-for (a,b) in enumerate(fib()):
-    if len(str(b)) == 1000: print a + 1; break
+for (a,b) in enumerate(fib(), 1):
+    if len(str(b)) == 1000: print a; break
 
 #----------------------------------------------------------#
 # Functional Solution
