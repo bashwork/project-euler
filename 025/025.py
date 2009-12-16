@@ -4,9 +4,8 @@
 def fib():
     a,b,c = 1,0,0
     while True:
-       c = a + b
-       a,b = b,c
-       yield c
+       a,b = b,a+b
+       yield b
 
 for (a,b) in enumerate(fib(), 1):
     if len(str(b)) == 1000: print a; break
